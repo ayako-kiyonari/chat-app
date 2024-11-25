@@ -16,6 +16,12 @@ class RoomsController < ApplicationController
       #成功した場合はredirect_toメソッドでルートパスにリダイレクトし、失敗した場合はrenderメソッドでrooms/new.html.erbのページを表示しています。
     end 
   end
+
+  def destroy
+    room = Room.find(params[:id])
+    room.destroy
+    redirect_to root_path
+  end
   
   private
 
